@@ -195,7 +195,7 @@ body._lock {
   flex-direction: column;
 }
 
-._container {
+.container {
   max-width: 1270px;
   padding: 0px 15px;
   margin: 0 auto;
@@ -869,4 +869,105 @@ body.ie ._ibg img {
 */
 .page {
   flex: 1 1 auto;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.header__wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+.header__body {
+  display: flex;
+  align-items: center;
+  min-height: 125px;
+  padding: 5px 0;
+}
+.header__main {
+  display: flex;
+  align-items: center;
+  flex: 0 0 39.8387096774%;
+}
+.header__logo {
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120.8333333333%;
+}
+.menu {
+  flex: 0 1 420px;
+}
+@media (min-width: 767.98px) {
+  .menu__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+.menu__item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0px 3px;
+  padding: 5px 0;
+  position: relative;
+}
+@media (any-hover: hover) {
+  .menu__item:hover .menu__sub-list {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .menu__item:hover .menu__arrow {
+    transform: rotate(-180deg);
+  }
+  .menu__item:hover .menu__arrow,
+.menu__item:hover .menu__link {
+    color: #e89f71;
+  }
+}
+.menu__link {
+  font-weight: 500;
+  color: inherit;
+  transition: color 0.3s ease 0s;
+}
+.menu__arrow {
+  margin-left: 8px;
+  font-size: 10px;
+  transition: all 0.3s ease 0s;
+}
+.menu__sub-list {
+  position: relative;
+  background-color: #e89f71;
+  padding: 15px;
+  flex: 1 1 100%;
+}
+@media (min-width: 767.98px) {
+  .menu__sub-list {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    transform: translate(0px, 15px);
+    min-width: 200px;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+}
+.menu__sub-item:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+}
+.menu__sub-link {
+  color: #fff;
+  line-height: 120%;
 }
