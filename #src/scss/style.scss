@@ -54,14 +54,12 @@ body {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	&._loaded {
-	}
 }
 //</ОБОЛОЧКА>===========================================================================================================
 
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
 ._container {
-	max-width: $maxWidthContainer + px;
+	max-width: $maxWidthContainer;
 	padding: 0px 15px;
 	margin: 0 auto;
 }
