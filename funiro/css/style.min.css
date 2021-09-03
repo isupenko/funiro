@@ -935,6 +935,21 @@ body.ie ._ibg img {
     color: #e89f71;
   }
 }
+@media (min-width: 767.98px) {
+  .menu__item._hover .menu__sub-list {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .menu__item._hover .menu__arrow {
+    transform: rotate(-180deg);
+  }
+  .menu__item._hover .menu__arrow,
+.menu__item._hover .menu__link {
+    color: #e89f71;
+  }
+}
 .menu__link {
   font-weight: 500;
   color: inherit;
