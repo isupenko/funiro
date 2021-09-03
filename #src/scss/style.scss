@@ -40,6 +40,7 @@ $darkGreyColor: #616161;
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 @import "null";
 body {
+	background: #f9e1e9;
 	color: $mainColor;
 	&._lock {
 		overflow: hidden;
@@ -126,6 +127,10 @@ body {
 	}
 
 	&__search {
+		@media (min-width:$md2+px) {
+			//элемент увеличивается на экранах шире 992px
+			flex: 1 1 auto;
+		}
 	}
 
 	&__actions {
@@ -238,16 +243,29 @@ body {
 	}
 }
 .search-form {
+	max-width: 473px;
 	&__icon {
+		display: none;
 	}
 
 	&__item {
+		display: flex;
+		align-items: center;
+		background-color: #fff;
 	}
 
 	&__btn {
+		flex: 0 0 45px;
+		height: 45px;
+		font-size: 15px;
+		color: #333333;
 	}
 
 	&__input {
+		font-size: 14px;
+		width: 100%;
+		padding-right: 20px;
+		color: $darkGreyColor;
 	}
 }
 .actions-header {

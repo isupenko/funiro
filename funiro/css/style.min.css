@@ -181,6 +181,7 @@ h6 {
 }
 */
 body {
+  background: #f9e1e9;
   color: #3a3a3a;
 }
 body._lock {
@@ -901,6 +902,11 @@ body.ie ._ibg img {
   font-weight: 700;
   line-height: 120.8333333333%;
 }
+@media (min-width: 991.98px) {
+  .header__search {
+    flex: 1 1 auto;
+  }
+}
 .menu {
   flex: 0 1 420px;
 }
@@ -985,4 +991,28 @@ body.ie ._ibg img {
 .menu__sub-link {
   color: #fff;
   line-height: 120%;
+}
+
+.search-form {
+  max-width: 473px;
+}
+.search-form__icon {
+  display: none;
+}
+.search-form__item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.search-form__btn {
+  flex: 0 0 45px;
+  height: 45px;
+  font-size: 15px;
+  color: #333333;
+}
+.search-form__input {
+  font-size: 14px;
+  width: 100%;
+  padding-right: 20px;
+  color: #616161;
 }
