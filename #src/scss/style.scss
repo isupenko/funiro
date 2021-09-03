@@ -127,6 +127,7 @@ body {
 	}
 
 	&__search {
+		@include adaptiv-value("padding-right", 32, 15, 1);
 		@media (min-width:$md2+px) {
 			//элемент увеличивается на экранах шире 992px
 			flex: 1 1 auto;
@@ -269,17 +270,63 @@ body {
 	}
 }
 .actions-header {
+	position: relative;
+	z-index: 5;
+	display: grid;
+	grid-template-columns: auto;
+	//иконки выстраиваются в ряд вне зависимости сколько их
+	grid-auto-flow: column;
+	align-items: center;
+	@include adaptiv-value("gap", 32, 15, 1);
 	&__item {
 	}
 
 	&__item-favorites {
+		color: #262f56;
+		font-size: 24px;
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $orangeColor;
+			}
+		}
 	}
 
 	&__item-user {
+		overflow: hidden;
+		border-radius: 50%;
+		@include adaptiv-value("width", 40, 30, 1);
+		@include adaptiv-value("height", 40, 30, 1);
 	}
 }
 .cart-header {
 	&__icon {
+		color: #262f56;
+		font-size: 24px;
+		transition: color 0.3s ease 0s;
+		position: relative;
+		display: block;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $orangeColor;
+			}
+		}
+		//ИКОНКА С КОЛИЧЕСТВОМ ТОВАРА
+		span {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: -10px;
+			right: -10px;
+			border-radius: 50%;
+			background-color: $orangeColor;
+			color: #fff;
+			font-size: 12px;
+		}
+
 	}
 
 	&__body {
