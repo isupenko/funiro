@@ -27,6 +27,11 @@
 		display: flex;
 		align-items: center;
 		flex: 0 0 494/1240 * 100%;
+		//Позволяем увеличиваться блоку с лого и меню
+		//для прижатия иконок к правой части на разрешении >=997
+		@media (max-width:$md2+px) {
+			flex: 1 1 auto;
+		}
 	}
 
 	&__logo {
@@ -182,7 +187,7 @@
 		display: flex;
 		align-items: center;
 		background-color: #fff;
-		@media (min-width:$md2+px) {
+		@media (max-width:$md2+px) {
 			box-shadow: 0 0 5px rgba(212, 209, 205, 0.3);
 			position: absolute;
 			top: -100%;
