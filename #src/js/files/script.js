@@ -20,13 +20,16 @@ window.onload = function () {
             _removeClasses(document.querySelectorAll('.menu__item._hover'), "_hover");
          } //</Убираем sub__menu по клику в любом месте страницы (для тачскринов)>
       }
-      /*if (targetElement.classList.contains('search-form__icon')) {
+      //если у нашего обьекта есть класс 'search-form__icon'
+      if (targetElement.classList.contains('search-form__icon')) {
+         //тогда мы находим обьект '.search-form' обращаемся к списку классов и убираем или добавляем '_active'
          document.querySelector('.search-form').classList.toggle('_active');
+         //Убираем поле формы щелкнув по любому месту
       } else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active')) {
          document.querySelector('.search-form').classList.remove('_active');
       }
 
-      if (targetElement.classList.contains('products__more')) {
+      /*if (targetElement.classList.contains('products__more')) {
          getProducts(targetElement);
          e.preventDefault();
       }

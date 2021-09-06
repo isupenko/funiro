@@ -13,14 +13,18 @@
 		z-index: 50;
 	}
 
-	&__container {
-	}
-
 	&__body {
 		display: flex;
 		align-items: center;
 		min-height: 125px;
 		padding: 5px 0;
+		position: relative;
+		@media (max-width:$md2+px){
+			min-height: 80px;
+		}
+		@media (max-width:$md3+px){
+			min-height: 50px;
+		}
 	}
 
 	&__main {
@@ -28,7 +32,7 @@
 		align-items: center;
 		flex: 0 0 494/1240 * 100%;
 		//Позволяем увеличиваться блоку с лого и меню
-		//для прижатия иконок к правой части на разрешении >=997
+		//для прижатия иконок к правой части на разрешении <=992
 		@media (max-width:$md2+px) {
 			flex: 1 1 auto;
 		}
@@ -39,9 +43,8 @@
 		font-size: 24px;
 		font-weight: 700;
 		line-height: 29/24 * 100%;
-	}
-
-	&__menu {
+		position: relative;
+		z-index: 5;
 	}
 
 	&__search {
@@ -51,14 +54,41 @@
 			flex: 1 1 auto;
 		}
 	}
-
-	&__actions {
-	}
 }
 
 .menu {
 	flex: 0 1 420px; // 1 - позволяет уменьшаться меню
 	&__body {
+		@media (max-width: $md3 + px) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			//возможность скроллить
+			overflow: auto;
+			top: 0;
+			left: -100%;
+			background-color: #fcf8f3;
+			transition: left 0.3s ease 0s;
+			padding: 70px 15px 30px 15px;
+			//фиксируем верхнюю часть, чтобы контент уходил под него
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				height: 50px;
+				top: 0;
+				left: -100%;
+				transition: left 0.3s ease 0s;
+				background-color: #fcf8f3;
+				z-index: 2;
+			}
+			&._active {
+				left: 0;
+				&::before {
+					left: 0;
+				}
+			}
+		}
 	}
 
 	&__list {
@@ -117,18 +147,34 @@
 				}
 			}
 		}
+		@media (max-width:$md3+px){
+			margin: 0 0 15px 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 	&__link {
 		font-weight: 500;
 		color: inherit;
 		transition: color 0.3s ease 0s;
+		@media (max-width:$md3+px) {
+			font-size: 24px;
+			font-weight: 600;
+		}
 	}
 
 	&__arrow {
 		margin-left: 8px;
 		font-size: 10px;
 		transition: all 0.3s ease 0s;
+		@media (max-width:$md3+px) {
+			font-size: 14px;
+			&._active {
+				transform: rotate(-180deg);
+			}
+		}
 	}
 
 	&__sub-list {
@@ -147,6 +193,10 @@
 			//убирает баг при наведении
 			pointer-events: none;
 			position: absolute;
+			z-index: 5;
+			@media (max-width:$md3+px) {
+				margin: 10px -15px 0 -15px;
+			}
 		}
 	}
 
@@ -159,6 +209,14 @@
 	&__sub-link {
 		color: #fff;
 		line-height: 120%;
+		@media (any-hover: hover){
+			&:hover {
+				font-weight: 600;
+			}
+		}
+		@media (max-width:$md2+px){
+			font-size: 18px;
+		}
 	}
 }
 .search-form {
@@ -190,6 +248,7 @@
 		@media (max-width:$md2+px) {
 			box-shadow: 0 0 5px rgba(212, 209, 205, 0.3);
 			position: absolute;
+			width: 100%;
 			top: -100%;
 			left: 0;
 			z-index: 5;
@@ -282,12 +341,51 @@
 .cart-list {
 }
 .icon-menu {
+	display: none;
+	@media (max-width: $md3+px) {
+		@include adaptiv-value(margin-left, 32, 15, 1);
+		position: relative;
+		display: block;
+		flex: 0 0 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
 }
 
 //====================================================================================================
 
 /*
-//Burger
+Burger
 .icon-menu {
 	display: none;
 	@media (max-width: $md3+px) {
