@@ -40,7 +40,7 @@ $darkGreyColor: #616161;
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 @import "null";
 body {
-	background: #f9e1e9;
+	//background: #f5f2de;
 	color: $mainColor;
 	&._lock {
 		overflow: hidden;
@@ -85,5 +85,87 @@ body {
 	flex: 1 1 auto;
 }
 //===================================================================================================================================
+
+.main-slider {
+	background: #f0ebe5;
+	&__container {
+	}
+
+	&__body {
+		padding-top: 140px;
+		position: relative;
+		z-index: 2;
+		@media (max-width:$md2+px) {
+			padding-top: 80px;
+		}
+		@media (max-width:$md3+px) {
+			padding-top: 50px;
+		}
+		//делаем флекс контейнер, 
+		@media (min-width:$md3+px) {
+			display: flex;
+		}
+	}
+	//элемент флекс контейнера body
+	&__content {
+		flex: 0 0 494/1240 * 100%;
+	}
+	//элемент флекс контейнера body
+	&__slider {
+		//позволяем увеличиваться на все оставшееся пространство.
+		flex: 1 1 auto;
+	}
+}
+
+/*.content-main {
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__button {
+	}
+}
+
+.button {
+}
+
+.slider-main {
+
+	&__controls {
+	}
+
+	&__body {
+	}
+
+	&__slide {
+	}
+
+	&__image {
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__price {
+	}
+}
+
+.controls-slider-main {
+
+	&__dotts {
+	}
+
+	&__arrows {
+	}
+}*/
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================

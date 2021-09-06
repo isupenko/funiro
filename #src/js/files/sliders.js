@@ -61,63 +61,54 @@ if (sliderScrollItems.length > 0) {
 
 function sliders_bild_callback(params) { }
 
-let slider_about = new Swiper('.about__slider', {
-	/*
-	effect: 'fade',
-	autoplay: {
-		delay: 3000,
-		disableOnInteraction: false,
-	},
-	*/
-	observer: true,
-	observeParents: true,
-	slidesPerView: 1,
-	spaceBetween: 0,
-	autoHeight: true,
-	speed: 800,
-	//touchRatio: 0,
-	//simulateTouch: false,
-	//loop: true,
-	//preloadImages: false,
-	//lazy: true,
-	// Dotts
-	//pagination: {
-	//	el: '.slider-quality__pagging',
-	//	clickable: true,
-	//},
-	// Arrows
-	navigation: {
-		nextEl: '.about__more .more__item_next',
-		prevEl: '.about__more .more__item_prev',
-	},
-	/*
-	breakpoints: {
-		320: {
-			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
+if (document.querySelector('.slider-main__body')){
+	new Swiper('.slider-main__body', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		//отступ между слайдами
+		spaceBetween: 32,
+		autoHeight: true,
+		speed: 800,
+		//слайдер бесконечный
+		loop: true,
+		loopAdditionalSliders: 5,
+		preloadImages: false,
+		paralax: true,
+		//Dotts
+		pagination: {
+			el: '.controls-slider-main__dotts',
+			clickable: true,
 		},
-		768: {
-			slidesPerView: 2,
-			spaceBetween: 20,
+		// Arrows
+		navigation: {
+			nextEl: '.slider-main .slider-arrow_next',
+			prevEl: '.slider-main .slider-arrow_prev',
+		}	
+	});
+}
+
+/*if (document.querySelector('.slider-rooms__body')){
+	new Swiper('.slider-rooms__body', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		speed: 800,
+		loop: true,
+		watchOverflow: true,
+		loopAdditionalSliders: 5,
+		preloadImages: false,
+		paralax: true,
+		//Dotts
+		pagination: {
+			el: '.slider-rooms__dotts',
+			clickable: true,
 		},
-		992: {
-			slidesPerView: 3,
-			spaceBetween: 20,
-		},
-		1268: {
-			slidesPerView: 4,
-			spaceBetween: 30,
-		},
-	},
-	*/
-	on: {
-		lazyImageReady: function () {
-			ibg();
-		},
-	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
-});
+		// Arrows
+		navigation: {
+			nextEl: '.slider-rooms .slider-arrow_next',
+			prevEl: '.slider-rooms .slider-arrow_prev',
+		}	
+	});
+}*/

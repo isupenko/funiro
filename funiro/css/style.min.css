@@ -181,7 +181,6 @@ h6 {
 }
 */
 body {
-  background: #f9e1e9;
   color: #3a3a3a;
 }
 body._lock {
@@ -1451,3 +1450,84 @@ Burger
 .page {
   flex: 1 1 auto;
 }
+
+.main-slider {
+  background: #f0ebe5;
+}
+.main-slider__body {
+  padding-top: 140px;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 991.98px) {
+  .main-slider__body {
+    padding-top: 80px;
+  }
+}
+@media (max-width: 767.98px) {
+  .main-slider__body {
+    padding-top: 50px;
+  }
+}
+@media (min-width: 767.98px) {
+  .main-slider__body {
+    display: flex;
+  }
+}
+.main-slider__content {
+  flex: 0 0 39.8387096774%;
+}
+.main-slider__slider {
+  flex: 1 1 auto;
+}
+
+/*.content-main {
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__button {
+	}
+}
+
+.button {
+}
+
+.slider-main {
+
+	&__controls {
+	}
+
+	&__body {
+	}
+
+	&__slide {
+	}
+
+	&__image {
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__price {
+	}
+}
+
+.controls-slider-main {
+
+	&__dotts {
+	}
+
+	&__arrows {
+	}
+}*/
