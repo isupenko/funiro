@@ -57,8 +57,8 @@ window.onload = function () {
       }*/
 
    }
-   //header
-   /*const headerElement = document.querySelector('.header');
+   //header - подключаем класс _scroll
+   const headerElement = document.querySelector('.header');
 
    const callback = function (entries, observer) {
       if (entries[0].isIntersecting) {
@@ -74,7 +74,7 @@ window.onload = function () {
 
    //load More Products
 
-   async function getProducts(button) {
+   /*async function getProducts(button) {
       if (!button.classList.contains('_hold')) {
          button.classList.add('_hold');
          const file = "json/products.json";
