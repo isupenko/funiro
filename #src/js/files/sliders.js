@@ -73,7 +73,7 @@ if (document.querySelector('.slider-main__body')){
 		loop: true,
 		loopAdditionalSliders: 5,
 		preloadImages: false,
-		paralax: true,
+		parallax: true,
 		//Dotts
 		pagination: {
 			el: '.controls-slider-main__dotts',
