@@ -4,7 +4,32 @@
 	width: 100%;
 	top: 0;
 	left: 0;
+	//js решение для header. Прокрутив страницу на 40px подключается класс _scroll
+	min-height: 40px;
+	//на маленьких размерах экрана вызываем _scroll через 5px
+	@media (max-width:$md3+px) {
+		min-height: 5px;
+	}
+	&._scroll {
+		.header__wrapper {
+			background-color: rgba(255, 255, 255, 0.9);
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: rgba(255, 255, 255, 1);
+				}
+			}
+		}
+		.header__body {
+			min-height: 50px;
+			@media (min-width:$md2+px) {
+				min-height: 70px;
+			}
+		}
+	}
+
 	&__wrapper {
+		//_scroll
+		transition: background-color 0.3s ease 0s;
 		//ШАПКА ФИКСИРОВАНА И ДВИГАЕТСЯ ПРИ СКРОЛЛЕ
 		position: fixed;
 		width: 100%;
@@ -14,6 +39,8 @@
 	}
 
 	&__body {
+		//_scroll
+		transition: min-height 0.3s ease 0s;
 		display: flex;
 		align-items: center;
 		min-height: 125px;

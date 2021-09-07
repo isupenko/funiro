@@ -40,7 +40,7 @@ $darkGreyColor: #616161;
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 @import "null";
 body {
-	background: #f9e1e9;
+	//background: #f5f2de;
 	color: $mainColor;
 	&._lock {
 		overflow: hidden;
@@ -85,5 +85,200 @@ body {
 	flex: 1 1 auto;
 }
 //===================================================================================================================================
+
+.main-slider {
+	background: #f0ebe1;
+
+	&__body {
+		padding-top: 140px;
+		position: relative;
+		z-index: 2;
+		@media (max-width:$md2+px) {
+			padding-top: 80px;
+		}
+		@media (max-width:$md3+px) {
+			padding-top: 50px;
+		}
+		//делаем флекс контейнер, 
+		@media (min-width:$md2+px) {
+			display: flex;
+		}
+	}
+	//элемент флекс контейнера body
+	&__content {
+		align-self: flex-start;
+		flex: 0 0 494/1240 * 100%;
+		@include adaptiv-value("margin-bottom", 80, 15, 1);
+		@media (max-width:$md2+px) {
+			margin: 0 -15px;
+		}
+	}
+	//элемент флекс контейнера body
+	&__slider {
+		//позволяем увеличиваться на все оставшееся пространство.
+		flex: 1 1 auto;
+		//если слайдер находится внутри флекс элемента или является флекс элементом то обязательно делаем:
+		min-width: 0;
+		//прибиваем слайдер к низу
+		align-self: flex-end;
+		@media (min-width:$md2+px) {
+			padding-left: 32px;
+		}
+	}
+}
+
+.content-main {
+	position: relative;
+	//дял того чтобы контентный блок был над слайдерами
+	z-index: 5;
+	padding-left: 15px;
+	padding-right: 15px;
+	background: rgba(255, 255, 255, 0.72);
+	@include adaptiv-value("padding-top", 60, 15, 1);
+	@include adaptiv-value("padding-bottom", 60, 15, 1);
+	@media (min-width:$md2+px) {
+		@include adaptiv-value("padding", 60, 1, 1);
+		background: rgba(255, 255, 255, 0.9);
+	@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
+	}
+	&__title {
+		@include adaptiv-value("font-size", 56, 24, 1);
+		font-weight: 700;
+		line-height: 120%;
+		margin-bottom: 16px;
+	}
+
+	&__text {
+		font-size: 16px;
+		color: $grayColor;
+		font-weight: 500;
+		line-height: 150%;
+		margin-bottom: 20px;
+	}
+
+	&__button {
+		@include adaptiv-value("min-height", 78, 45, 1);
+		font-size: 20px;
+		font-weight: 600;
+		background-color: $orangeColor;
+		color: #fff;
+		width: 100%;
+		@media (any-hover: hover) {
+			&:hover {
+				background: #966749;
+			}
+		}
+	}
+}
+
+.slider-main {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	@media (max-width:$md2+px) {
+		//позволяем обьектам резиниться
+		align-items: stretch;
+		flex-direction: column-reverse;
+	}
+	&__controls {
+		align-self: stretch;
+		margin-bottom: 20px;
+		@media (max-width:$md2+px) {
+			margin: 10px 0px 20px 0px;
+		}
+	}
+
+	&__body {
+		overflow: visible;
+		@media (min-width:$md2+px) {
+			@include adaptiv-value("width", 934, 290, 1);
+		}
+		@media (max-width:$md2+px) {
+			margin: 0 -15px;
+		}
+	}
+
+	&__slide {
+		position: relative;
+	}
+
+	&__image {
+		padding: 0 0 59.1% 0;
+	}
+
+	&__content {
+		min-width: 295px;
+		max-height: 300px;
+		overflow: auto;
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+		padding: 15px;
+		background: rgba(255, 255, 255, 0.9);
+		@media (min-width:$md3+px) {
+			position: absolute;
+			min-width: 350px;
+			@include adaptiv-value("right", 40, 0, 1);
+			@include adaptiv-value("bottom", 40, 0, 1);
+		}
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
+	}
+
+	&__title {
+		font-size: 26px;
+		font-weight: 600;
+		line-height: 120%;
+		margin-bottom: 5px;
+
+	}
+
+	&__text {
+		line-height: 150%;
+		color: $grayColor;
+		margin-bottom: 8px;
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: row-reverse;
+		line-height: 150%;
+		align-items: center;
+		font-weight: 600;
+		justify-content: space-between;
+		font-size: 16px;
+		//стили для стрелочки
+		&::before {
+			margin-left: 10px;
+			font-size: 12px;
+		}
+	}
+}
+
+.controls-slider-main {
+	display: flex;
+	align-items: center;
+
+	&__dotts {
+		flex: 1 1 auto;
+		@media (min-width:$md2+px) {
+			padding: 0 20px 0 0;
+		}
+		@media (max-width:$md2+px) {
+			justify-content: center;
+		}
+	}
+
+	&__arrows {
+		@media (max-width:$md2+px) {
+			display: none;
+		}
+	}
+}
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
