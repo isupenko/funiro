@@ -87,7 +87,7 @@ body {
 //===================================================================================================================================
 
 .main-slider {
-	background: #f0ebe5;
+	background: #f0ebe1;
 
 	&__body {
 		padding-top: 140px;
@@ -106,7 +106,9 @@ body {
 	}
 	//элемент флекс контейнера body
 	&__content {
+		align-self: flex-start;
 		flex: 0 0 494/1240 * 100%;
+		@include adaptiv-value("margin-bottom", 80, 15, 1);
 	}
 	//элемент флекс контейнера body
 	&__slider {
@@ -114,6 +116,11 @@ body {
 		flex: 1 1 auto;
 		//если слайдер находится внутри флекс элемента или является флекс элементом то обязательно делаем:
 		min-width: 0;
+		//прибиваем слайдер к низу
+		align-self: flex-end;
+		@media (min-width:$md2+px) {
+			padding-left: 32px;
+		}
 	}
 }
 
@@ -164,43 +171,92 @@ body {
 	}
 }
 
-/*.button {
-}
-
 .slider-main {
-
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 	&__controls {
+		align-self: stretch;
+		margin-bottom: 20px;
 	}
 
 	&__body {
+		overflow: visible;
+		@media (min-width:$md2+px) {
+			@include adaptiv-value("width", 934, 290, 1);
+		}
 	}
 
 	&__slide {
+		position: relative;
 	}
 
 	&__image {
+		padding: 0 0 59.1% 0;
 	}
 
 	&__content {
+		min-width: 295px;
+		max-height: 300px;
+		overflow: auto;
+		position: absolute;
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+		padding: 15px;
+		background: rgba(255, 255, 255, 0.9);
+		@media (min-width:$md3+px) {
+			position: absolute;
+			min-width: 350px;
+			@include adaptiv-value("right", 40, 0, 1);
+			@include adaptiv-value("bottom", 40, 0, 1);
+		}
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
 	}
 
 	&__title {
+		font-size: 26px;
+		font-weight: 600;
+		line-height: 120%;
+		margin-bottom: 5px;
+
 	}
 
 	&__text {
+		line-height: 150%;
+		color: $grayColor;
+		margin-bottom: 8px;
 	}
 
 	&__price {
+		display: flex;
+		flex-direction: row-reverse;
+		line-height: 150%;
+		align-items: center;
+		font-weight: 600;
+		justify-content: space-between;
+		font-size: 16px;
+		//стили для стрелочки
+		&::before {
+			margin-left: 10px;
+			font-size: 12px;
+		}
 	}
 }
 
 .controls-slider-main {
+	display: flex;
+	align-items: center;
 
 	&__dotts {
+		flex: 1 1 auto;
 	}
 
 	&__arrows {
 	}
-}*/
+}
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
