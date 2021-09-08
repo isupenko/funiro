@@ -201,7 +201,7 @@ body._lock {
   margin: 0 auto;
 }
 
-.btn {
+.button {
   font-weight: 600;
   display: inline-flex;
   justify-content: center;
@@ -211,12 +211,12 @@ body._lock {
   transition: all 0.3s ease 0s;
   min-height: 48px;
 }
-.btn_white {
+.button_white {
   color: #e89f71;
   background-color: #fff;
 }
 @media (any-hover: hover) {
-  .btn_white:hover {
+  .button_white:hover {
     background-color: #e89f71;
     color: #fff;
   }
@@ -2008,6 +2008,7 @@ Burger
   font-weight: normal;
   margin-left: 16px;
   color: #b0b0b0;
+  text-decoration: line-through;
 }
 @media (any-hover: none) {
   .item-product__actions {
