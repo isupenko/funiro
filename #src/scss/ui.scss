@@ -1,11 +1,18 @@
 //<ОСНОВНОЙ БЛОК>====================================================================================================
+._title {
+	@include adaptiv-value("font-size", 40, 24, 1);
+	font-weight: 700;
+	line-height: 120%;
+	align-items: center;
+}
+
+
 ._footer-title {
 	font-size: 24px;
 	margin-bottom: 16px;
 	color: #000;
 	font-weight: 700;
 }
-
 .slider-arrows {
 	display: grid;
 	grid-template-columns: repeat(2, 48px);
@@ -48,7 +55,6 @@
 		}
 	}
 }
-
 .swiper-pagination-bullets {
 	display: flex;
 	flex-wrap: wrap;
