@@ -1,17 +1,31 @@
 //<ОСНОВНОЙ БЛОК>====================================================================================================
+._title {
+	@include adaptiv-value("font-size", 40, 24, 1);
+	font-weight: 700;
+	line-height: 120%;
+	align-items: center;
+}
+
+._flyImage._ibg {
+	opacity: 1;
+	position: fixed;
+	z-index: 100;
+	transition: all 1s ease 0s;
+}
+
 ._footer-title {
 	font-size: 24px;
 	margin-bottom: 16px;
 	color: #000;
 	font-weight: 700;
 }
-
 .slider-arrows {
 	display: grid;
 	grid-template-columns: repeat(2, 48px);
 	column-gap: 8px;
 }
 .slider-arrow {
+	pointer-events: auto;
 	border-radius: 50%;
 	height: 48px;
 	background-color: rgba(232, 159, 113, 0.3);
@@ -48,7 +62,6 @@
 		}
 	}
 }
-
 .swiper-pagination-bullets {
 	display: flex;
 	flex-wrap: wrap;

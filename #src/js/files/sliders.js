@@ -87,7 +87,7 @@ if (document.querySelector('.slider-main__body')){
 	});
 }
 
-/*if (document.querySelector('.slider-rooms__body')){
+if (document.querySelector('.slider-rooms__body')){
 	new Swiper('.slider-rooms__body', {
 		observer: true,
 		observeParents: true,
@@ -98,7 +98,7 @@ if (document.querySelector('.slider-main__body')){
 		watchOverflow: true,
 		loopAdditionalSliders: 5,
 		preloadImages: false,
-		paralax: true,
+		parallax: true,
 		//Dotts
 		pagination: {
 			el: '.slider-rooms__dotts',
@@ -110,4 +110,4 @@ if (document.querySelector('.slider-main__body')){
 			prevEl: '.slider-rooms .slider-arrow_prev',
 		}	
 	});
-}*/
+}

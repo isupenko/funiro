@@ -331,5 +331,409 @@ body {
 		color: $grayColor;
 	}
 }
+//==============================================================================================
+/*========================================products============================================*/
+.products {
+	@include adaptiv-value("padding-bottom", 40, 30, 1);
+
+	&__container {
+	}
+
+	&__title {
+		margin-bottom: 10px;
+	}
+
+	&__items {
+		display: grid;
+		gap: 32px;
+		grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+	}
+
+	&__item {
+	}
+	&__footer {
+		padding-top: 32px;
+		text-align: center;
+	}
+	&__more {
+		border: 1px solid $orangeColor;
+		min-width: 245px;
+		&._hold {
+			opacity: 0.2;
+			cursor: default;
+		}
+
+	}
+}
+
+.item-product {
+	background: #ecedf0;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	//показываем тень при наведени на карточку товара
+	@media (any-hover: hover) {
+		&:hover {
+			.item-product__actions {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__labels {
+		position: absolute;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		@include adaptiv-value("right", 24, 10, 1);
+		@include adaptiv-value("top", 24, 10, 1);
+	}
+
+	&__label {
+		//height
+		flex: 0 0 48px;
+		width: 48px;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		font-weight: 500;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		&_sale {
+			background: #e97171;
+		}
+		&_new {
+			background: #2ec1ac;
+		}
+	}
+
+	&__image {
+		padding: 0px 0px 301px/285px * 100% 0px;
+	}
+
+	&__body {
+		//позволяем увеличиваться
+		flex: 1 1 auto;
+		padding: 16px 16px 20px 16px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content {
+		//так-же прибьем к низу след. элемент
+		flex: 1 1 auto;
+	}
+
+	&__title {
+		font-size: 22px;
+		font-weight: 600;
+		line-height: 120%;
+		margin-bottom: 8px;
+	}
+
+	&__text {
+		color: $grayColor;
+		line-height: 150%;
+		margin-bottom: 3px;
+	}
+
+	&__prices {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		line-height: 150%;
+	}
+
+	&__price {
+		font-size: 18px;
+		font-weight: 600;
+
+		&_old {
+			font-size: 16px;
+			font-weight: normal;
+			margin-left: 16px;
+			color: #b0b0b0;
+			text-decoration: line-through;
+		}
+	}
+
+	//наведение на карточку товара
+	&__actions {
+		//пишем свойства для устройств которые не позволяют наводить на обьект
+		@media (any-hover: none) {
+			padding-top: 15px;
+		}
+		@media (any-hover: hover) {
+			//убираем тень для того чтобы показать ее при наведении
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all 0.3s ease 0s;
+			background-color: rgba(114, 114, 110, 0.74);
+			z-index: 3;
+		}
+	}
+}
+.actions-product {
+
+	&__body {
+		display: flex;
+		//позволяем ломаться кнопке с иконками соцсетей
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__button {
+		//позволяем кнопке увеличиваться, тем самым она выталкнет иконки соцсетей вниз
+		flex: 1 1 100%;
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+		&._hold {
+			opacity: 0.2;
+			cursor: default;
+		}
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		transition: color 0.3s ease 0s;
+		color: inherit;
+		font-weight: 600;
+		//обратимся к иконке
+		&::before {
+			margin-right: 10px;
+			font-size: 16px;
+		}
+		@media (any-hover: hover) {
+			color: #fff;
+			&:hover {
+				color: $orangeColor;
+			}
+		}
+	}
+}
+//======================================================================================
+/*=========================================rooms========================================*/
+.rooms {
+	background: #fcf8f3;
+	@include adaptiv-value("padding-top", 44, 30, 1);
+	@include adaptiv-value("padding-bottom", 44, 30, 1);
+
+	&__container {
+		@media (min-width:$md2+px) {
+			display: flex;
+		}
+	}
+
+	&__body {
+		flex: 0 0 465 / 1240 * 100%;
+		position: relative;
+		z-index: 5;
+		align-self: center;
+		@media (min-width:$md2+px){
+			@include adaptiv-value("padding-right", 80, 30, 1);
+		}
+		@media (max-width:$md2+px) {
+			margin-bottom: 30px;
+			text-align: center;
+		}
+	}
+
+	&__title {
+		margin-bottom: 8px;
+		text-align: left;
+		@media (max-width:$md2+px) {
+			text-align: center;
+		}
+	}
+
+	&__text {
+		line-height: 150%;
+		font-weight: 500;
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__button {
+		background-color: $orangeColor;
+		color: #fff;
+		min-width: 180px;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #8d6146;
+			}
+		}
+		@media (max-width:$md4+px) {
+			width: 100%;
+		}
+	}
+
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+		align-self: flex-start;
+		@media (max-width:$md4+px) {
+			margin: 0 -15px;
+		}
+	}
+}
+
+.slider-rooms {
+	position: relative;
+
+	&__body {
+		//показываем слайды за пределом контейнера
+		overflow: visible;
+		position: relative;
+		//накрываем слева слайдер чтобы кго не было видно под контентом
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 100vw;
+			left: 0;
+			background-color: #fcf8f3;
+			z-index: 2;
+			transform: translate(-100%, 0px);
+		}
+	}
+
+	&__slide {
+		width: 372px;
+		position: relative;
+		overflow: hidden;
+		@include adaptiv-value("min-height", 585, 400, 1);
+		&.swiper-slide-active {
+			.slider-rooms__image {
+				height: 100%;
+			}
+		}
+		@media (max-width:$md4+px) {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		height: 100%;
+		transition: height 0.8s ease 0s;
+		@media (min-width:$md3+px) {
+			height: 83%;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		color: inherit;
+		max-width: 240px;
+		@include adaptiv-value("left", 24, 15, 1);
+		@include adaptiv-value("bottom", 24, 15, 1);
+		@include adaptiv-value("padding", 32, 15, 1);
+		background: rgba(255, 255, 255, 0.9);
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
+		&::before {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 48px;
+			height: 48px;
+			transform: translate(100%, 0px);
+			background-color: $orangeColor;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&__laber {
+	}
+
+	&__title {
+		font-weight: 600;
+		font-size: 28px;
+	}
+
+	&__arrows {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		//отнимем половину высоты
+		transform: translate(0px, -50%);
+		width: calc(100% - 48px);
+		left: 24px;
+		z-index: 5;
+		justify-content: space-between;
+		@media (min-width:$md1+px) {
+			left: -24px;
+			width: calc(100% + 48px);
+		}
+	}
+
+	&__dotts {
+		@media (min-width:$md3+px){
+			position: absolute;
+			bottom: 30px;
+			width: 100%;
+			left: 396px;
+		}
+		@media (max-width:$md3+px) {
+			justify-content: center;
+			padding-top: 15px;
+		}
+	}
+}
+.label-slider {
+	display: grid;
+	color: $darkGreyColor;
+	gap: 8px;
+	align-items: center;
+	justify-content: start;
+	grid-template-columns: auto 27px auto;
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+
+	&__number {
+	}
+
+	&__line {
+		height: 1px;
+		background-color: $darkGreyColor;
+	}
+
+	&__text {
+	}
+}
+.slider-arrows {
+}
+.slider-arrow {
+
+	&_white {
+	}
+
+	&_prev {
+	}
+
+	&_next {
+	}
+}
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
