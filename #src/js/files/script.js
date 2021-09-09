@@ -35,9 +35,12 @@ window.onload = function () {
          //отменяем действие по умолчанию (чтобы страница не перезагружалась т.к. кнопка - это ссылка)
          e.preventDefault();
       }
-
-      /*if (targetElement.classList.contains('actions-product__button')) {
+      //отлавливаем клик по кнопке добавления в корзину с классом .actions-product__button
+      if (targetElement.classList.contains('actions-product__button')) {
+         //в константу получаем содержимое data-атрибута. Для этого ищем среди родителей нажатой кнопки--
+         //--обьект с классом .item-product
          const productId = targetElement.closest('.item-product').dataset.pid
+         //после чего саму кнопку и полученный id отправляем в функцию
          addToCart(targetElement, productId);
          e.preventDefault();
       }
@@ -56,7 +59,7 @@ window.onload = function () {
          const productId = targetElement.closest('.cart-list__item').dataset.cartPid;
          updateCart(targetElement, productId, false);
          e.preventDefault();
-      }*/
+      }
 
    }
    //header - подключаем класс _scroll
@@ -195,55 +198,57 @@ window.onload = function () {
    }
 
    //addToCart
-   /*function addToCart(productButton, productId) {
+   function addToCart(productButton, productId) {
+      //опять предохраняемся от множественного нажатия на кнопку
       if (!productButton.classList.contains('_hold')) {
          productButton.classList.add('_hold');
+         //добавим так же кнопке класс ._fly
          productButton.classList.add('_fly');
 
          const cart = document.querySelector('.cart-header__icon');
          const product = document.querySelector(`[data-pid="${productId}"]`);
          const productImage = product.querySelector('.item-product__image');
-
+         //эффект летящей картинки. Кланируем картинку
          const productImageFly = productImage.cloneNode(true);
-
+         //получаем размеры и координаты картинки
          const productImageFlyWidth = productImage.offsetWidth;
          const productImageFlyHeight = productImage.offsetHeight;
          const productImageFlyTop = productImage.getBoundingClientRect().top;
          const productImageFlyLeft = productImage.getBoundingClientRect().left;
-
+         //применение полученных размеров для нашего клона
          productImageFly.setAttribute('class', '_flyImage _ibg');
          productImageFly.style.cssText =
             `
-               left: ${productImageFlyLeft}px;
-               top: ${productImageFlyTop}px;
-               width: ${productImageFlyWidth}px;
-               height: ${productImageFlyHeight}px;
-           `;
+         left: ${productImageFlyLeft}px;
+         top: ${productImageFlyTop}px;
+         width: ${productImageFlyWidth}px;
+         height: ${productImageFlyHeight}px;
+      `;
 
          document.body.append(productImageFly);
-
+         //получаем координаты корзины
          const cartFlyLeft = cart.getBoundingClientRect().left;
-         const cartFlyTop = cart.getBoundingClientRect().top;
-
+			const cartFlyTop = cart.getBoundingClientRect().top;
+         //присваиваем клону новое значение left и top
          productImageFly.style.cssText =
-            `
-               left: ${cartFlyLeft}px;
-               top: ${cartFlyTop}px;
-               width: 0px;
-               heihgt: 0px;
-               opacity: 0;
-           `;
+				`
+			left: ${cartFlyLeft}px;
+			top: ${cartFlyTop}px;
+         width: 0px;
+         height: 0px;
+         opacity:0;
+      `;
 
          productImageFly.addEventListener('transitionend', function () {
-            if (productButton.classList.contains('_fly')) {
-               productImageFly.remove();
-               updateCart(productButton, productId);
-               productButton.classList.remove('_fly');
-            }
-         });
+				if (productButton.classList.contains('_fly')) {
+					productImageFly.remove();
+					updateCart(productButton, productId);
+					productButton.classList.remove('_fly');
+				}
+			});
+		}
+	}
 
-      }
-   }
 
    function updateCart(productButton, productId, productAdd = true) {
       const cart = document.querySelector('.cart-header');
@@ -264,12 +269,12 @@ window.onload = function () {
             const cartProductImage = product.querySelector('.item-product__image').innerHTML;
             const cartProductTitle = product.querySelector('.item-product__title').innerHTML;
             const cartProductContent = `
-           <a href="" class="cart-list__image _ibg">${cartProductImage}</a>
-           <div class="cart-list__body">
+            <a href="" class="cart-list__image _ibg">${cartProductImage}</a>
+            <div class="cart-list__body">
                <a href="" class="cart-list__title">${cartProductTitle}</a>
                <div class="cart-list__quantity">Quantity: <span>1</span></div>
                <a href="" class="cart-list__delete">Delete</a>
-           </div>`;
+            </div>`;
             cartList.insertAdjacentHTML('beforeend', `<li data-cart-pid="${productId}" class="cart-list__item">${cartProductContent}</li>`);
          } else {
             const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
@@ -294,6 +299,5 @@ window.onload = function () {
             cart.classList.remove('_active');
          }
       }
-   }*/
-
+   }
 }
