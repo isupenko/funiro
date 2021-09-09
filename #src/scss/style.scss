@@ -341,6 +341,7 @@ body {
 
 	&__title {
 		margin-bottom: 10px;
+		text-align: center;
 	}
 
 	&__items {
@@ -722,6 +723,115 @@ body {
 	&__text {
 	}
 }
+.slider-arrow {
+
+	&_white {
+	}
+
+	&_prev {
+	}
+
+	&_next {
+	}
+}
+//==================================================================================
+/*======================================tips=======================================*/
+
+.tips {
+	background: #fcf8f3;
+	@include adaptiv-value("padding-top", 44, 30, 1);
+	@include adaptiv-value("padding-bottom", 44, 30, 1);
+
+	&__container {
+	}
+
+	&__title {
+		text-align: center;;
+	}
+
+	&__slider {
+	}
+}
+
+.slider-tips {
+	//т.к. стрелки будем располагать относительно этого блока
+	position: relative;
+
+	&__body {
+		//решаем проблему с подрезанием теней
+		@include adaptiv-value("margin-left", -32, -15, 1);
+		@include adaptiv-value("margin-right", -32, -15, 1);
+		@include adaptiv-value("padding", 32, 15, 1);
+	}
+
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		transition: box-shadow 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				box-shadow: 0 0 32px rgba(97, 97, 97, 0.4);
+			}
+		}
+	}
+
+	&__image {
+		padding: 0px 0px 251/391 * 100% 0px;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		padding: 15px;
+		align-items: flex-start;
+	}
+
+	&__title {
+		flex: 1 1 auto;
+		color: inherit;
+		font-weight: 600;
+		line-height: 120%;
+		font-size: 24px;
+		transition: all 0.3s ease 0s;
+		margin: 8px;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $orangeColor;
+			}
+		}
+	}
+
+	&__text {
+		color: $grayColor;
+		font-size: 14px;
+		line-height: 150%;
+	}
+
+	&__dotts {
+		@include adaptiv-value("padding-top", 8, 0, 1);
+		justify-content: center;
+	}
+
+	&__arrows {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		//отнимем половину высоты
+		transform: translate(0px, -50%);
+		width: calc(100% - 48px);
+		left: 24px;
+		z-index: 5;
+		justify-content: space-between;
+		@media (min-width:$md1+px) {
+			left: -24px;
+			width: calc(100% + 48px);
+		}
+		@media (max-width:$md3+px) {
+			display: none;
+		}
+	}
+}
 .slider-arrows {
 }
 .slider-arrow {
@@ -735,5 +845,6 @@ body {
 	&_next {
 	}
 }
+
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
