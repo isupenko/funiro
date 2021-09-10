@@ -73,7 +73,7 @@ body {
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 //@import "datepicker";
-//@import "lightgallery";
+@import "lightgallery";
 //@import "pagging";
 @import "popup";
 @import "header";
@@ -93,14 +93,14 @@ body {
 		padding-top: 140px;
 		position: relative;
 		z-index: 2;
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			padding-top: 80px;
 		}
-		@media (max-width:$md3+px) {
+		@media (max-width: $md3+px) {
 			padding-top: 50px;
 		}
-		//делаем флекс контейнер, 
-		@media (min-width:$md2+px) {
+		//делаем флекс контейнер,
+		@media (min-width: $md2+px) {
 			display: flex;
 		}
 	}
@@ -109,7 +109,7 @@ body {
 		align-self: flex-start;
 		flex: 0 0 494/1240 * 100%;
 		@include adaptiv-value("margin-bottom", 80, 15, 1);
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			margin: 0 -15px;
 		}
 	}
@@ -121,7 +121,7 @@ body {
 		min-width: 0;
 		//прибиваем слайдер к низу
 		align-self: flex-end;
-		@media (min-width:$md2+px) {
+		@media (min-width: $md2+px) {
 			padding-left: 32px;
 		}
 	}
@@ -136,10 +136,10 @@ body {
 	background: rgba(255, 255, 255, 0.72);
 	@include adaptiv-value("padding-top", 60, 15, 1);
 	@include adaptiv-value("padding-bottom", 60, 15, 1);
-	@media (min-width:$md2+px) {
+	@media (min-width: $md2+px) {
 		@include adaptiv-value("padding", 60, 1, 1);
 		background: rgba(255, 255, 255, 0.9);
-	@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31))) {
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31))) {
 			background: rgba(255, 255, 255, 0.72);
 			backdrop-filter: blur(31px);
 		}
@@ -178,7 +178,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	@media (max-width:$md2+px) {
+	@media (max-width: $md2+px) {
 		//позволяем обьектам резиниться
 		align-items: stretch;
 		flex-direction: column-reverse;
@@ -186,17 +186,17 @@ body {
 	&__controls {
 		align-self: stretch;
 		margin-bottom: 20px;
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			margin: 10px 0px 20px 0px;
 		}
 	}
 
 	&__body {
 		overflow: visible;
-		@media (min-width:$md2+px) {
+		@media (min-width: $md2+px) {
 			@include adaptiv-value("width", 934, 290, 1);
 		}
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			margin: 0 -15px;
 		}
 	}
@@ -218,7 +218,7 @@ body {
 		flex-direction: column;
 		padding: 15px;
 		background: rgba(255, 255, 255, 0.9);
-		@media (min-width:$md3+px) {
+		@media (min-width: $md3+px) {
 			position: absolute;
 			min-width: 350px;
 			@include adaptiv-value("right", 40, 0, 1);
@@ -235,7 +235,6 @@ body {
 		font-weight: 600;
 		line-height: 120%;
 		margin-bottom: 5px;
-
 	}
 
 	&__text {
@@ -266,30 +265,26 @@ body {
 
 	&__dotts {
 		flex: 1 1 auto;
-		@media (min-width:$md2+px) {
+		@media (min-width: $md2+px) {
 			padding: 0 20px 0 0;
 		}
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			justify-content: center;
 		}
 	}
 
 	&__arrows {
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			display: none;
 		}
 	}
 }
 //========================================================================================
 /*========================================advantages====================================*/
-/*.page {
 
-	&__advantages {
-	}
-}*/
 .advantages {
-	@include adaptiv-value(padding-top, 88, 30, 1);
-	@include adaptiv-value(padding-bottom, 88, 30, 1);
+	@include adaptiv-value(padding-top, 78, 30, 1);
+	@include adaptiv-value(padding-bottom, 48, 30, 1);
 
 	&__container {
 		display: flex;
@@ -300,13 +295,13 @@ body {
 	&__item {
 		display: inline-grid;
 		padding: 15px 0;
-		//РЯДЫ - AUTO / КОЛОНКИ - 85PX, ОСТАЛЬНЫМ ЗАПОЛНЯЕМ ОСТАВШЕЕСЯ ПРОСТРАНСТВО 
-		grid-template: auto auto /85px 1fr;
-		@media (max-width:$md2+px) {
+		//РЯДЫ - AUTO / КОЛОНКИ - 85PX, ОСТАЛЬНЫМ ЗАПОЛНЯЕМ ОСТАВШЕЕСЯ ПРОСТРАНСТВО
+		grid-template: auto auto / 85px 1fr;
+		@media (max-width: $md2+px) {
 			min-width: 280px;
 		}
-		@media (max-width:$md3+px) {
-			grid-template: auto auto /auto 1fr;
+		@media (max-width: $md3+px) {
+			grid-template: auto auto / auto 1fr;
 		}
 	}
 
@@ -314,7 +309,7 @@ body {
 		text-align: center;
 		align-self: center;
 		grid-row: span 2;
-		@media (max-width:$md3+px) {
+		@media (max-width: $md3+px) {
 			padding: 0px 15px 0px 0px;
 		}
 	}
@@ -336,11 +331,8 @@ body {
 .products {
 	@include adaptiv-value("padding-bottom", 40, 30, 1);
 
-	&__container {
-	}
-
 	&__title {
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 		text-align: center;
 	}
 
@@ -350,8 +342,6 @@ body {
 		grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
 	}
 
-	&__item {
-	}
 	&__footer {
 		padding-top: 32px;
 		text-align: center;
@@ -363,7 +353,6 @@ body {
 			opacity: 0.2;
 			cursor: default;
 		}
-
 	}
 }
 
@@ -488,7 +477,6 @@ body {
 	}
 }
 .actions-product {
-
 	&__body {
 		display: flex;
 		//позволяем ломаться кнопке с иконками соцсетей
@@ -535,7 +523,7 @@ body {
 	@include adaptiv-value("padding-bottom", 44, 30, 1);
 
 	&__container {
-		@media (min-width:$md2+px) {
+		@media (min-width: $md2+px) {
 			display: flex;
 		}
 	}
@@ -545,10 +533,10 @@ body {
 		position: relative;
 		z-index: 5;
 		align-self: center;
-		@media (min-width:$md2+px){
+		@media (min-width: $md2+px) {
 			@include adaptiv-value("padding-right", 80, 30, 1);
 		}
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			margin-bottom: 30px;
 			text-align: center;
 		}
@@ -557,7 +545,7 @@ body {
 	&__title {
 		margin-bottom: 8px;
 		text-align: left;
-		@media (max-width:$md2+px) {
+		@media (max-width: $md2+px) {
 			text-align: center;
 		}
 	}
@@ -579,7 +567,7 @@ body {
 				background-color: #8d6146;
 			}
 		}
-		@media (max-width:$md4+px) {
+		@media (max-width: $md4+px) {
 			width: 100%;
 		}
 	}
@@ -588,7 +576,7 @@ body {
 		flex: 1 1 auto;
 		min-width: 0;
 		align-self: flex-start;
-		@media (max-width:$md4+px) {
+		@media (max-width: $md4+px) {
 			margin: 0 -15px;
 		}
 	}
@@ -625,7 +613,7 @@ body {
 				height: 100%;
 			}
 		}
-		@media (max-width:$md4+px) {
+		@media (max-width: $md4+px) {
 			width: 100%;
 		}
 	}
@@ -633,7 +621,7 @@ body {
 	&__image {
 		height: 100%;
 		transition: height 0.8s ease 0s;
-		@media (min-width:$md3+px) {
+		@media (min-width: $md3+px) {
 			height: 83%;
 		}
 	}
@@ -682,20 +670,20 @@ body {
 		left: 24px;
 		z-index: 5;
 		justify-content: space-between;
-		@media (min-width:$md1+px) {
+		@media (min-width: $md1+px) {
 			left: -24px;
 			width: calc(100% + 48px);
 		}
 	}
 
 	&__dotts {
-		@media (min-width:$md3+px){
+		@media (min-width: $md3+px) {
 			position: absolute;
 			bottom: 30px;
 			width: 100%;
 			left: 396px;
 		}
-		@media (max-width:$md3+px) {
+		@media (max-width: $md3+px) {
 			justify-content: center;
 			padding-top: 15px;
 		}
@@ -724,7 +712,6 @@ body {
 	}
 }
 .slider-arrow {
-
 	&_white {
 	}
 
@@ -742,14 +729,8 @@ body {
 	@include adaptiv-value("padding-top", 44, 30, 1);
 	@include adaptiv-value("padding-bottom", 44, 30, 1);
 
-	&__container {
-	}
-
 	&__title {
-		text-align: center;;
-	}
-
-	&__slider {
+		text-align: center;
 	}
 }
 
@@ -823,28 +804,113 @@ body {
 		left: 24px;
 		z-index: 5;
 		justify-content: space-between;
-		@media (min-width:$md1+px) {
+		@media (min-width: $md1+px) {
 			left: -24px;
 			width: calc(100% + 48px);
 		}
-		@media (max-width:$md3+px) {
+		@media (max-width: $md3+px) {
 			display: none;
 		}
 	}
 }
-.slider-arrows {
+//==================================================================================
+/*====================================furniture===================================*/
+
+.furniture {
+	@include adaptiv-value("padding-bottom", 8, 0, 1);
+
+	&__label {
+		text-align: center;
+		color: $darkGreyColor;
+		line-height: 150%;
+		font-size: 20px;
+		margin-bottom: 8px;
+	}
+
+	&__title {
+		text-align: center;
+		margin-bottom: 8px;
+	}
+
+	&__body {
+		position: relative;
+		//для устройств где нет мыши
+		@media (any-hover: none) {
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: auto;
+		grid-auto-flow: column;
+		align-items: center;
+		gap: 16px;
+		//для устройств с курсором
+		@media (any-hover: hover) {
+			justify-content: center;
+		}
+	}
+
+	&__column {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0px -8px;
+		&:first-child {
+			justify-content: flex-end;
+		}
+	}
+
+	&__row {
+		display: inline-grid;
+		padding: 0px 8px;
+		gap: 16px;
+		grid-template-columns: auto;
+		grid-auto-flow: column;
+		&:not(:last-child) {
+			margin: 0 0 16px 0;
+		}
+	}
 }
-.slider-arrow {
 
-	&_white {
+.row-furniture {
+	&_left-top {
+		justify-content: end;
+		align-items: end;
 	}
 
-	&_prev {
+	&_left-bottom {
+		justify-content: end;
+		align-items: start;
 	}
 
-	&_next {
+	&_center {
+		display: block;
+	}
+
+	&_right-top {
+		align-items: end;
+	}
+
+	&_right-bottom {
+		align-items: start;
+	}
+
+	&__item {
+		@media (any-hover: hover) {
+			img {
+				transition: all 0.3s ease 0s;
+				filter: grayscale(1);
+			}
+			&:hover {
+				img {
+					filter: grayscale(0);
+				}
+			}
+		}
 	}
 }
-
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
